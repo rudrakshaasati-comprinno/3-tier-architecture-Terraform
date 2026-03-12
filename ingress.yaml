@@ -1,16 +1,12 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
-
 metadata:
-  name: nginx-ingress
-
+  name: hello-world-ingress
   annotations:
     alb.ingress.kubernetes.io/scheme: internet-facing
     alb.ingress.kubernetes.io/target-type: ip
-
 spec:
   ingressClassName: alb
-
   rules:
   - http:
       paths:
@@ -18,6 +14,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginx-service
+            name: hello-world-service
             port:
               number: 80
